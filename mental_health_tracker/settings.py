@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-55uw(n!(ml#h6iqvv$z2#5#*(lyl1&or0nnm1#h1x_mk#25ay*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+PRODUCTION = os.getenv("PRODUCTION", False)
+DEBUG = not PRODUCTION
 ALLOWED_HOSTS = []
 
 
@@ -122,4 +123,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-ALLOWED_HOSTS = ["localhost", "127.0.0.1","hubban.syadid-mentalhealthtracker.pbp.cs.ui.ac.id."]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1","hubban-syadid-mentalhealthtrackers.pbp.cs.ui.ac.id"]
